@@ -13,7 +13,7 @@ export class PaymentService  {
   token:any={token:localStorage.getItem('token')};
 
 
-  checkOut(id:string|null,payInfo:object) :Observable<any> {                     
+  checkOut(id:string|null,payInfo:object) :Observable<any> {                      
   return  this._http.post(this.baseUrl+`orders/checkout-session/${id}?url=http://ecommerce-red-store-44oq.vercel.app`,
     {shippingAddress:payInfo},
     {headers:this.token}) 
