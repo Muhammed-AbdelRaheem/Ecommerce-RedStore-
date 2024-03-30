@@ -14,7 +14,7 @@ export class PaymentService  {
 
 
   checkOut(id:string|null,payInfo:object) :Observable<any> {                     
-  return  this._http.post(this.baseUrl+`orders/checkout-session/${id}?url=http://Muhammed-AbdelRaheem/Ecommerce-RedStore`,
+  return  this._http.post(this.baseUrl+`orders/checkout-session/${id}?url=http://Muhammed-AbdelRaheem/Ecommerce-RedStore-`,
     {shippingAddress:payInfo},
     {headers:this.token}) 
   }
