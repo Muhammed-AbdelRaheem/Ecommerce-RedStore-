@@ -1,0 +1,22 @@
+
+$main-color: #0aad0a;
+
+
+:host{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.padding{
+    padding-top: 80px;
+}
+
+
+
+.btn-scroll{
+    z-index: 9999;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    // color: $main-color;
+}

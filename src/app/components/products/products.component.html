@@ -1,0 +1,42 @@
+<section *ngIf="product.length!=0">
+  <h2 class="mt-5 text-center">ALL Products</h2>
+  <div class="row justify-content-center g-3 mt-4">
+
+    <div *ngFor="let pr of product | paginate: {
+       id: 'pagePagination',
+      itemsPerPage: pageSize,
+      currentPage: currPage,
+      totalItems: total  } 
+      " class="col-xl-3 col-lg-4 col-md-5 col-sm-6  pb-4 ">
+        <div class="inner product  overflow-hidden position-relative ">
+      
+        <i *ngIf="!wishdata.includes(pr._id)" (click)="addwish(pr._id)" class="heart fas fa-heart  position-absolute pointer  text-danger"></i>
+        <i *ngIf="wishdata.includes(pr._id)" (click)="removeWish(pr._id)" class="heart fa-solid fa-heart-crack  position-absolute pointer text-danger"></i>
+        <header role="button" [routerLink]="['/productdetails',pr._id]">
+          <img class="w-100 " [src]="pr.imageCover" [title]="pr.title |cutText:2" [alt]="pr.title">
+          <p class="small mt-1">{{pr.category.name}}</p>
+          <h3 class="h6  text-main small">{{pr.title |cutText :2 }}</h3>
+          <div class="d-flex justify-content-between">
+            <span class="font-sm">{{pr.price | currency: "EGP"}} </span>
+            <div class="font-sm">
+              <i [class.rating-color]="pr.ratingsAverage>=icon" *ngFor="let icon of [1,2,3,4,5]"
+                class="fas fa-star rating-color "></i>
+              <span>{{pr.ratingsAverage}}</span>
+            </div>
+          </div>
+        </header>
+        <footer>
+          <button #btnAddProduct (click)="addProduct(pr._id,btnAddProduct)" class="btn btn-main w-100 mt-2"> ADD product
+            + </button>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    
+    <pagination-controls id="pagePagination" (pageChange)="pageChanged($event)" (pageBoundsCorrection)="pageChanged($event)"
+      [maxSize]="9" [directionLinks]="true" [autoHide]="true" [responsive]="true" previousLabel="Previous" nextLabel="Next"
+      screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </div>
+</section>

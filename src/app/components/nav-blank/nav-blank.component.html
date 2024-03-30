@@ -1,0 +1,79 @@
+<nav #navbar class="navbar navbar-expand-lg  bg-body-tertiary fixed-top nav-shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""><img src="./assets/images/pngegg (1).png" width="30" [height]="30"
+        alt="freshcart-logo"> Red Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class=" navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/products">product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/categories">categoris</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/brands">brands</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/allorders">Orders</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center justify-content-center ">
+        <div class="d-flex justify-content-center align-items-center">
+          <a class="nav-link position-relative p-0 ms-3" routerLink="/cart"><i
+              class="fas fa-cart-shopping fa-2x text-main carousel-pounter "></i>
+            <span class="badge bg-info  position-absolute  ">{{cartnumber}}</span>
+          </a>
+          <a class="nav-link position-relative p-0 ms-3" routerLink="/wishlist">
+            <i class="fas fa-heart fa-2x text-danger carousel-pounter "></i>
+            <span class="badge bg-info  position-absolute  ">{{wishNumber}}</span>
+          </a>
+
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user fa-2xl text-main"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item bg-main active-link" routerLink="/forgetpassword"
+                  routerLinkActive="active-link">Forget Password</a></li>
+
+            </ul>
+          </li>
+        </div>
+
+        <li class="nav-item d-flex align-items-center gap-3 me-4">
+          <a href="https://www.facebook.com/" class="text-light"> <i class="fa-brands fas fa-facebook fa-lg"></i></a>
+
+          <a href="https://www.instagram.com/?hl=ar" class="text-light"> <i
+              class="fa-brands fas fa-instagram fa-lg"></i>
+          </a>
+          <a href="https://www.tiktok.com/ar/" class="text-light"> <i class="fa-brands fas fa-tiktok fa-lg"></i>
+          </a>
+          <a href="https://twitter.com/?lang=ar" class="text-light"> <i class="fa-brands fas fa-twitter fa-lg"></i>
+          </a>
+          <a href="https://www.youtube.com/" class="text-light"> <i class="fa-brands fas fa-youtube fa-lg"></i>
+          </a>
+
+
+
+
+        </li>
+
+
+
+
+        <li class="nav-item">
+          <span id="signout" (click)="signOut()" role="button">SignOut</span>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

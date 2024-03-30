@@ -1,0 +1,65 @@
+
+<section *ngIf="ordersData;else msg" class="d-flex justify-content-center align-items-center flex-column py-5">
+    <div class="carts w-50 p-3 mx-auto rounded-2 bg-main-light ">
+
+        <h2 class="text-center text-black">Order Cart</h2>
+
+
+        <div *ngFor="let order of ordersData.reverse()" class=" border border-5 border-black py-3 border-opacity-50 mb-3 p-3">
+
+            <div class="personalInfo .row small d-flex justify-content-between align-items-center ">
+               
+                    <div class="userData text-black col-md-8">
+                        <p class="small">Name: {{order.user.name}}</p>
+                        <p class="small">Phone Number:{{order.user.phone}}</p>
+                        <p class="small">Email:{{order.user.email}}</p>
+                    </div>
+                    <div class="shippingAddress text-black col-md-4  ms-auto">
+                        <p class="small">City: {{order.shippingAddress.city}}</p>
+                        <p class="small">Phone Number:{{order.shippingAddress.phone}}</p>
+                        <p class="small">Details:{{order.shippingAddress.details}}</p>
+                    </div>
+            </div>
+
+
+            <hr class="w-50 mx-auto text-black">
+
+
+            <div *ngFor="let item of order.cartItems"
+                class="row flex-row py-2 align-items-center justify-content-between">
+                <div class="col-md-2 ">
+
+                    <img [src]="item.product.imageCover" class="w-100" alt="">
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="small mb-0 text-black">count : <span>{{item.count}}</span></p>
+
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="small mb-0 text-black">Title : <span> {{item.product.title |cutText :3}}</span></p>
+
+                    </div >
+
+                    <div class="d-flex justify-content-between">
+                        <p class=" small mb-0 text-main">Price : <span>{{item.price}}</span></p>
+
+                    </div>
+                </div>
+
+            </div>
+            <p class="text-main mb-0 pt-4 fw-bold">Total price : {{order.totalOrderPrice}} </p>
+            <span class="font-sm text-main">Date : {{order.paidAt | date: 'M/d/yy, h:mm a'}}</span>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+<ng-template  #msg>
+    <h2  class="text-center vh-50  mt-5"> Your Order List Is Empty.....</h2>
+</ng-template>

@@ -1,0 +1,28 @@
+Hello EveryOne🤍
+
+I'm glad to share my last angular project (Fresh Cart) 
+
+Here's a summary of the key features and technologies used in the e-commerce frontend Fresh Cart, now integrated with Angular:
+
+*Key Features:*
+- Authentication & Authorization
+- Online Payment Support
+- API Data Handling (GET, DELETE, PUT, POST)
+- CRUD Operations on Cart Component
+- Smart Search Functionality
+- User-Friendly Forms
+
+*Technologies Utilized:*
+- HTML, CSS, Bootstrap
+- Angular Framework
+- Angular Forms for Form Handling
+- Angular Router for Routing
+- Angular HTTP Client for HTTP Requests
+- StandAlone Componant 
+- ngx spinner , owl carousel 
+- Interceptor for handling (sending requests , loading )
+- Guard 
+- Service 
+- Interface 
+
+Fresh Cart seamlessly integrates Angular's powerful features with elegant design and robust functionality, providing users with a sophisticated and intuitive shopping experience.

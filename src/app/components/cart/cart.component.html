@@ -1,0 +1,41 @@
+<section *ngIf="cartDetails;else msg" class="d-flex justify-content-center align-items-center flex-column">
+    <div class="carts w-75 p-3 mx-auto rounded-2 bg-main-light ">
+        <h1 class=" text-black text-center ">shop Cart</h1>
+        <div class="  d-flex justify-content-between align-items-center py-3">
+            <button (click)="removeAllItem()" class="btn btn-danger ms-auto">Clear All</button>
+        </div>
+        <p class="text-black ">Total price : {{cartDetails.totalCartPrice |currency :'EGP '}} </p>
+        <div *ngFor="let pr of cartDetails?.products" class="row border-bottom border-black py-3 border-opacity-50">
+            <div class="col-md-2 d-flex align-items-center">
+                <img [src]="pr.product?.imageCover" class="w-100" alt="">
+            </div>
+            <div class="col-md align-items-center d-flex justify-content-between">
+                <div>
+                    <p class="font-sm mb-0 text-black">{{pr.product?.title}}</p>
+                    <p class="text-black small my-1">{{pr.price |currency :'EGP '}}</p>
+                    <button #btnRemove (click)="removeItem(pr.product._id,btnRemove)" class="btn p-0 m-0 text-main">
+                        <i class="fas fa-trash-can "></i> remove
+                    </button>
+                </div>
+
+                <div>
+                    <button #btn1 (click)="updateitem(pr.product._id,pr.count-1,btn1,btn2)"
+                        class="border border-success  rounded-2 ">-</button>
+                    <span class="mx-3 text-main">{{pr?.count}}</span>
+                    <button #btn2 (click)="updateitem(pr.product._id,pr.count+1,btn1,btn2)"
+                        class="border border-success  rounded-2 ">+</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-75">
+        <button [routerLink]="['/payment',cartDetails._id]" class="btn btn-main my-3 mt-3">Online Payment <img src="./assets/images/visa-1.svg" style="width: 30px;"
+                alt=""></button>
+    </div>
+</section>
+
+<ng-template  #msg>
+    <h2  class="text-center vh-50  mt-5">Your Cart Is Empty.....</h2>
+</ng-template>

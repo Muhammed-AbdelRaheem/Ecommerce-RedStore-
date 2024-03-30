@@ -1,0 +1,30 @@
+<section *ngIf="product.length;else msg">
+    <div class="row g-3 mt-4 justify-content-center">
+      <div *ngFor="let pr of product" class="col-xl-2 col-lg-3 col-md-4 col-sm-6 pb-4 ">
+          <div class="inner product curos overflow-hidden position-relative ">
+            <i *ngIf="!wishdata.includes(pr._id)" (click)="addwish(pr._id)" class="heart fa-regular fa-heart  position-absolute pointer       text-danger  "></i>
+            <i *ngIf="wishdata.includes(pr._id)" (click)="removeWish(pr._id)" class="heart fa-solid fa-heart-crack  position-absolute pointer text-danger"></i>
+  
+        
+            <header  [routerLink]="['/productdetails',pr._id]" role="button">
+              <img class="w-100 "[src]="pr.imageCover" [title]="pr.title" [alt]="pr.title">
+              <p class="font-sm text-main mt-1">{{pr.category.name}}</p>
+              <h3 class="h6 small cursor-pointer">{{pr.title |cutText :3 }}</h3>
+              <div class="d-flex justify-content-between">
+                <span class="font-sm">{{pr.price | currency: "EGP"}} </span>
+                <div class="font-sm">
+                  <i   [class.rating-color]="pr.ratingsAverage>=icon" *ngFor="let icon of [1,2,3,4,5]" class="fas fa-star rating-color "></i> 
+                  <span >{{pr.ratingsAverage}}</span>
+                </div>
+              </div>
+            </header>
+            <footer>
+               <button #btnAddProduct (click)="addProduct(pr._id,btnAddProduct)" class="btn btn-main w-100 mt-2"> ADD product + </button>
+            </footer>
+          </div>
+      </div>
+    </div>
+  </section>
+  <ng-template  #msg>
+    <h2  class="text-center vh-50  mt-5"> Your Wish List Is Empty.....</h2>
+</ng-template>

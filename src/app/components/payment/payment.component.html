@@ -1,0 +1,46 @@
+
+<div class=" w-75 mx-auto my-5 bg-main-light d-flex justify-content-center flex-column align-items-center">
+    <h2 class="text-center h1 fw-bold my-4 text-black">Shipping address</h2>
+    <form (ngSubmit)="handleForm()" [formGroup]="paymentForm " class="w-75 my-5">
+     
+     
+        <label for="city" class="text-black">City</label>
+        <input class="form-control mb-3" type="text" name="city" id="city" formControlName='city'>
+      
+        <div class="alert alert-danger w-50 mx-auto p-1" *ngIf="paymentForm.get('city')?.touched&&paymentForm.get('city')?.errors ">
+          
+            <div *ngIf="paymentForm.get('city')?.getError('required')">
+                city Is required
+            </div>
+
+        </div>
+        <label for="phone" class="text-black">phone</label>
+        <input class="form-control mb-3" type="tel" name="phone" id="phone" formControlName='phone'>
+
+        <div class="alert alert-danger w-50 mx-auto p-1" *ngIf="paymentForm.get('phone')?.touched&&paymentForm.get('phone')?.errors ">
+            <div *ngIf="paymentForm.get('phone')?.getError('required')">
+                phone number Is required
+
+            </div>
+            <div *ngIf="paymentForm.get('phone')?.getError('pattern')">
+                phone number Mush be Egyptian number
+
+            </div>
+      
+        </div>
+
+        <label for="details" class="text-black">details</label>
+        <textarea class="form-control mb-3" type="text" name="details" id="details"
+            formControlName='details'></textarea>
+        <div class="alert alert-danger w-50 mx-auto p-1"*ngIf="paymentForm.get('details')?.touched&&paymentForm.get('details')?.errors ">
+            <div *ngIf="paymentForm.get('details')?.getError('required')">
+                Details Is required
+    
+            </div>
+        </div>
+
+       
+
+        <button  [disabled]="paymentForm.invalid" class=" btn-main my-3 w-100">Next</button>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<section  class="pb-4">
+    <div class="row g-4 justify-content-center align-items-center">
+        <div *ngFor="let category of category" class="col-sm-6 col-md-4 col-lg-3">
+            <div class="product pointer" [routerLink]="['/subcategry',category._id]">
+                <img class="w-100" height="300" [src]="category.image" [alt]="category.image">
+                <h3 class=" h5 text-main text-center">{{category.name}}</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
